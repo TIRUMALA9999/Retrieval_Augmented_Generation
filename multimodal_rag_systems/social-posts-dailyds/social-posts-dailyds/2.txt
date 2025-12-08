@@ -1,0 +1,23 @@
+Silhouette score is commonly used for clustering evaluation.
+
+But it has a major limitation.
+
+The Silhouette score is typically higher for convex (or somewhat spherical) clusters.
+
+Thus, using it to evaluate arbitrary-shaped clustering can produce misleading results.
+
+DBCV — density-based clustering validation is a better metric in such cases.
+
+Simply put, DBCV computes two values:
+- The density within a cluster
+- The density between clusters
+
+A high density within a cluster and a low density between clusters indicates good clustering results.
+
+DBCV can also be used when you don’t have ground truth labels.
+
+The effectiveness of DBCV is evident from the image below.
+
+While the clustering output of KMeans is worse, its Silhouette score is still higher.
+
+However, DBCV produces the expected results.

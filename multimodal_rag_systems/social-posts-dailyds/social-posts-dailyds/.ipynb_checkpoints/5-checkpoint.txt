@@ -1,0 +1,19 @@
+Here's how I got 20x speedup on KMeans clustering using approximate nearest neighbors:
+
+To recall, KMeans is trained as follows:
+1) Initialize centroids
+2) Find the nearest centroid for each point
+3) Reassign centroids
+4) Repeat until convergence
+
+But the second step involves a brute-force and exhaustive search.
+
+This is especially challenging with large datasets.
+
+To speed up KMeans, use Faiss, which provides an alternative and efficient implementation to KMeans.
+
+It provides a much faster nearest-neighbor search using "Inverted Index", which is an optimized data structure to store and index the data point. 
+
+This makes performing clustering extremely efficient.
+
+I have linked a guide in the comments to learn more about approximate nearest-neighbor algorithms.

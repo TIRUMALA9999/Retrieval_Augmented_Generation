@@ -1,0 +1,41 @@
+Accuracy can be deceptive.
+
+Here's when:
+
+If some technique improves the model, we can say it was effective.
+
+But at times, you may be making good progress in improving the model, but “Accuracy” is not reflecting that (yet).
+
+I have seen this when building probabilistic multiclass-classification models, where Accuracy is determined using the highest probability output label.
+
+Now imagine this:
+
+↳ In version 1 of the model, the output probability of “Class C” (the true label) was the lowest.
+
+↳ But in version 2 of the same model, the output probability of “Class C” (the true label) was 2nd highest.
+
+In both cases, the final prediction is incorrect, which is okay.
+
+However, going from “Version 1” to “Version 2” did improve the model.
+
+Nonetheless, Accuracy does not consider this since it only cares about the final prediction.
+
+The solution?
+
+If you are iteatively improving a probabilistic multiclass classification model, always use the ​top-k accuracy score​.
+
+It computes whether the correct label is among the top “k” labels predicted probabilities or not.
+
+> As you may have guessed, the top-1 accuracy is the traditional accuracy.
+
+This is a better indicator for assessing model improvement efforts.
+
+For instance, if the top-3 accuracy score increases from 75% to 90%, this tells us we are headed in the right direction:
+
+↳ Earlier, the correct prediction was in the top 3 labels only 75% of the time.
+
+↳ But now, the correct prediction is in the top 3 labels 90% of the time.
+
+That said, you should only use it to assess the model improvement efforts since true predictive power is determined using traditional accuracy.
+
+Ideally, “Top-k Accuracy” will increase with iterations. But Accuracy can stay the same.

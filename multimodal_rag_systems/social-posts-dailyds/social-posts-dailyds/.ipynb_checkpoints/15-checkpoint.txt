@@ -1,0 +1,33 @@
+Here's an intuitive technique to measure feature importance.
+
+Of the many techniques, I often find “Shuffle Feature Importance” to be a pretty handy and intuitive technique to measure feature importance.
+
+As the name suggests, it observes how shuffling a feature influences the model performance.
+
+The visual below illustrates this technique in four simple steps:
+
+- Train the model and measure its performance → P1.
+- Shuffle one feature randomly and measure performance again → P2 (model is NOT trained again).
+- Measure feature importance using performance drop = (P1-P2).
+- Repeat for all features.
+
+The idea makes intuitive sense as well.
+
+Simply put, if we randomly shuffle just one feature and everything else stays the same, then the performance drop will indicate how important that feature is.
+- If the drop is HIGH → the feature has a strong influence on the model’s predictions.
+- If the drop is LOW → the feature has a low influence on the model’s predictions.
+
+Do note that to eliminate any potential effects of randomness during feature shuffling, it is recommended to:
+- Shuffle the same feature multiple times
+- Measure average performance drop.
+
+A few things that I love about this technique are:
+- It requires no repetitive model training. Just train the model once and measure the feature importance.
+- It is pretty simple to use and quite intuitive to interpret.
+- This technique can be used for all ML models that can be evaluated.
+
+A small caveat of this technique is that, say two features are highly correlated, and one of them is permuted/shuffled.
+
+In this case, the model will still have access to the feature through its correlated feature. This will result in a lower importance value for both features.
+
+One way to handle this is to cluster highly correlated features and only keep one feature from each cluster.

@@ -1,0 +1,36 @@
+Active learning in ML explained visually.
+
+There’s not much we can do to build a supervised system when the data we begin with is unlabeled.
+
+Unsupervised techniques (if they fit the task) can be a solution. But supervised systems are typically on par with unsupervised ones.
+
+Another way, if feasible, is to rely on self-supervised learning. But it has limited applicability, which largely depends on the task and feasibility of "self-labeling."
+
+While full data annotation will work, it is difficult, expensive, and time-consuming.
+
+Active learning is a relatively easy, inexpensive, and quick way to address this.
+
+The visual below depicts how it works.
+
+The idea is to build the model with active human feedback on examples it is struggling with.
+
+There are 4 steps:
+
+Step 1) Manually label a tiny percentage of the dataset.
+
+Step 2) Train a model on this labeled dataset. This won’t be a perfect model, but that’s okay.
+
+Step 3) Generate prediction on the remaining unlabeled dataset and model's confidence.
+- We cannot determine if these predictions are correct as we do not have any labels.
+- That’s why we must use a model that can, either implicitly or explicitly, provide a confidence level about its predictions.
+- Probabilistic models (ones that output a probability of each class) are typically a good fit here.
+- One way to determine confidence is by looking at the difference between the top 2 class probabilities.
+- If the difference is large, this can indicate that the model is quite confident in its prediction. The opposite also holds true.
+
+Step 4) Label the lowest confidence predictions and feed them to the model with the seed data obtained in Step 1.
+
+Repeat this a few times and stop when you are satisfied with the performance.
+
+The only thing that you have to be careful about is generating confidence measures.
+
+If you mess this up, it will affect every subsequent training step.

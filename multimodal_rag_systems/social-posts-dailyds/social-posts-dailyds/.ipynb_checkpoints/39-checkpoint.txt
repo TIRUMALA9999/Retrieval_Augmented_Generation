@@ -1,0 +1,25 @@
+Here's a common misconception about log transform.
+
+Log transform is commonly used to eliminate skewness in data.
+
+Yet, it is not always the ideal solution for eliminating skewness.
+
+It is important to note that log transform:
+- Does not eliminate left-skewness.
+- Only works for right-skewness, that too when values are small and positive.
+
+This is evident from the image below.
+
+It is because the log function grows faster for lower values. Thus, it stretches out the lower values more than the higher values.
+
+In left-skewness:
+- The tail exists to the left, which gets stretched out more than the majority of values that exist to the right.
+- Thus, skewness isn't affected much.
+
+In right-skewness:
+- Majority of values and peak exists to the left, which gets stretched out more.
+- However, the log function grows slowly when the values are large. Thus, the impact of the stretch is low.
+
+There are a few things you can do:
+- See if transformation can be avoided as it inhibits interpretability.
+- If not, try box-cox transform. It is often quite effective, both for left-skewed and right-skewed data.

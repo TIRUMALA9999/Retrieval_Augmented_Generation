@@ -1,0 +1,50 @@
+If your interviewer asks: "How to increase the context length of LLMs?"
+
+Here's how you can answer.
+
+Consider this:
+
+• GPT-3.5-turbo had a context window of 4,096 tokens.
+• Later, GPT-4 took that to 8,192-32k tokens.
+• Claude 2 reached 100,000 tokens.
+• Llama 3.1 → 128,000 tokens.
+• Gemini → 1M+ tokens
+
+But having a longer context window isn't just as easy as increasing the size of the matrices, if you will, due to the quadratic complexity of the traditional attention mechanism.
+
+On a side note, this bottleneck was already known way back in 2017 when transformers were introduced. That is why since GPT-3, most LLMs have been utilizing non-quadratic approaches for attention computation.
+
+That said, Flash Attention provided a fast and memory-efficient method while retaining the exactness of the traditional attention mechanism.
+
+The whole idea revolves around optimizing the data movement within GPU memory.
+
+Here are some background details and how it works.
+
+In a GPU:
+• A thread is the smallest unit of execution.
+• A group of threads is called a block.
+
+Also:
+• A block executes the same kernel (function, to simplify), and its threads cooperate by sharing a fast memory block called SRAM.
+• All blocks together can access a shared global memory block in the GPU called HBM.
+
+A note about SRAM and HBM:
+• SRAM is scarce but extremely fast.
+• HBM is much more abundant but slow (typically 8-15x slower).
+
+In the traditional computation of attention (product of Q and K, and then softmax):
+
+• First, the product of query (Q) and key (K) is distributed to threads, computed, and brought back to HBM.
+• Next, the above result is again distributed to threads to compute the softmax of the product and again brought back to HBM once it is done.
+
+Flash attention utilized SRAM to cache the intermediate results and used something called "tiling", which meaningfully split the matrices into tiles.
+
+This way, it reduced the redundant movements...
+
+...while also ensuring that intermediate results can be safely cached in SRAM (due to its low memory).
+
+This offered a speed up of ~8x over standard attention methods.
+
+Also, it scales linearly with sequence length, which is great.
+
+This shows you why studying the internal details of the hardware used for AI can be so crucial.

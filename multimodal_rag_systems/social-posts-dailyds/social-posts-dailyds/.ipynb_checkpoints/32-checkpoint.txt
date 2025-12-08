@@ -1,0 +1,26 @@
+Why is the Kernel Trick called a "trick"?
+
+Many ML algorithms use kernels for robust modeling, like SVM, KernelPCA, etc.
+
+The core objective of a kernel function is to compute dot products in some other feature space (mostly high-dimensional) without projecting the vectors to that space.
+
+But how does that even happen?
+
+Consider the image below.
+
+Let’s assume the following polynomial kernel function:
+- k(X, Y) = (1+XᵀY)².
+
+Also, for simplicity, let’s say both X and Y are two-dimensional vectors:
+- X = (x1, x2)
+- Y = (y1, y2)
+
+As shown in the image below, simplifying the kernel expression produces a dot product between the two 6-dimensional vectors.
+
+This shows that the kernel function we chose earlier computes the dot product in a 6-dimensional space without explicitly visiting that space.
+
+And that is the primary reason why we also call it the “kernel trick.”
+
+More specifically, it’s framed as a “trick” since it allows us to operate in high-dimensional spaces without explicitly computing the coordinates of the data in that space.
+
+RBF kernel is even better in this respect. It lets you compute the dot product in an infinite-dimensional space without explicitly visiting that space.

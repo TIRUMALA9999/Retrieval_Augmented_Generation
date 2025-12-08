@@ -1,0 +1,15 @@
+A single frame summary of 6 types of clustering algorithms.
+
+Centroid-based is the most common class of clustering. Yet, there's a whole world of algorithms beyond that, which we all should be aware of.
+
+- Centroid-based: Cluster data points based on proximity to centroids.
+
+- Connectivity-based: Cluster points based on proximity between clusters.
+
+- Density-based: Cluster points based on their density. It is more robust to clusters with varying densities and shapes than centroid-based clustering.
+
+- Graph-based: Cluster points based on graph distance.
+
+- Distribution-based: Cluster points based on their likelihood of belonging to the same distribution.
+
+- Compression-based: Transform data to a lower dimensional space and then perform clustering

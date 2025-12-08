@@ -1,0 +1,20 @@
+Pandas is getting outdated.
+
+5 reasons you should move to FireDucks.
+
+1. Requires changing ONLY ONE line of code:
+↳ Replace "import pandas as pd" with "import fireducks.pandas as pd"
+↳ The rest of the entire code remains the same. 
+↳ So, if you know Pandas, you already know how to use FireDucks.
+↳ Done!
+
+2. Ridiculously faster than Pandas, Modin, and Polars. As per official benchmarks:
+↳ Modin had an average speed-up of 0.9x over Pandas.
+↳ Polars had an average speed-up of 39x over Pandas.
+↳ But FireDucks had an average speed-up of 50x over Pandas.
+
+3. Pandas is single-core; FireDucks is multi-core.
+
+4. Pandas follows eager execution; FireDucks is based on lazy execution. This way, FireDucks can build a logical execution plan and apply possible optimizations.
+
+5. That said, even under eager execution, FireDucks is way faster than Pandas, as depicted in the image below.

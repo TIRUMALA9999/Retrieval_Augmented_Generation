@@ -1,0 +1,26 @@
+If you write native Python code, here's how to speed it up over 50x in 4 simple steps ⚡️
+
+Python’s default interpreter (CPython) is slow primarily because of its dynamicity.
+↳ After defining a variable of a specific type, it can be changed to some other type.
+
+But these dynamic manipulations come at the cost of run time and many memory overheads.
+
+Instead, use the Cython module. It converts Python code into C, which is fast and efficient.
+
+Steps to use the Cython module:
+1) Load the Cython module: %load_ext Cython
+2) Add the Cython magic command
+3) When using functions, specify the parameter data type
+4) Define every variable using the “cdef” keyword and specify its data type.
+
+Done!
+
+Once done, the code will run at native machine code speed.
+
+The speedup is evident from the image below:
+- Python code is slow.
+- But Cython provides over a 100x speedup.
+
+Note: The sample code is just for demonstration purposes. I know it can be implemented with NumPy and a for-loop can be entirely eliminated.
+
+Cython restricts Python's dynamicity we discussed above. This means the program has to never worry about dynamic allocations.

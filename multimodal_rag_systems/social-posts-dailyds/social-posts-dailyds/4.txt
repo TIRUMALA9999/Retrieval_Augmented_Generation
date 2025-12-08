@@ -1,0 +1,28 @@
+Prompting vs. RAG vs. Fine-tuning, which one is best for you?
+
+If you are building real-world LLM-based apps, it is unlikely you can start using the model right away without adjustments.
+
+To maintain high utility, you either need:
+
+• Prompt engineering
+• Fine-tuning
+• RAG
+• Or a hybrid approach (RAG + fine-tuning)
+
+The following visual will help you decide which one is best for you.
+
+Two important parameters guide this decision:
+
+↳ The amount of external knowledge required for your task.
+↳ The amount of adaptation you need. Adaptation, in this case, means changing the behavior of the model, its vocabulary, writing style, etc.
+
+For instance, an LLM might find it challenging to summarize the transcripts of company meetings because speakers might be using some internal vocabulary in their discussions.
+
+So here's the simple takeaway:
+
+↳ Use RAGs to generate outputs based on a custom knowledge base if the vocabulary & writing style of the LLM remains the same.
+↳ Use fine-tuning to change the structure (behaviour) of the model than knowledge.
+↳ Prompting is sufficient if you don't have a custom knowledge base and don't want to change the behavior.
+↳ And finally, if your application demands a custom knowledge base and a change in the model's behavior, use a hybrid (RAG + Fine-tuning) approach.
+
+That's it!

@@ -1,0 +1,28 @@
+5 techniques to fine-tune LLMs, explained visually.
+
+Traditional fine-tuning (adjusting all parameters) is infeasible with LLMs. This is because these models have billions of parameters and are hundreds of GBs in size, and not everyone has access to such computing infrastructure.
+
+Thankfully, today, we have many optimal ways to fine-tune LLMs.
+
+Five such popular techniques are depicted below.
+
+1) LoRA
+- Add two low-rank matrices, A and B, alongside weight matrices W, which contain the trainable parameters.
+- Instead of fine-tuning W, adjust the updates in these low-rank matrices.
+
+2) LoRA-FA
+- While LoRA considerably decreases the total trainable parameters, it still demands high activation memory to update the low-rank weights.
+- LoRA-FA (FA stands for Frozen-A) freezes matrix A and only updates matrix B.
+
+3) VeRA
+- In LoRA, every layer has a different pair of low-rank matrices A and B, and both matrices are trained.
+- In VeRA, however, matrices A and B are frozen, random, and shared across all model layers.
+- VeRA focuses on learning small, layer-specific scaling vectors, denoted as b and d, which are the only trainable parameters in this setup.
+
+4) Delta-LoRA
+- Here, in addition to training low-rank matrices, the matrix W is also adjusted but not in the traditional way.
+- Instead, the difference (or delta) between the product of the low-rank matrices A and B in two consecutive training steps is added to W.
+
+5) LoRA+:
+- In LoRA, both matrices A and B are updated with the same learning rate.
+- Authors found that setting a higher learning rate for matrix B results in more optimal convergence.

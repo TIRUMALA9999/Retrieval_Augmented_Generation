@@ -1,0 +1,45 @@
+If you use KMeans all the time, read this:
+
+Knowing an algorithm is just 20% knowledge. The rest 80% comes from understanding the practical limitations.
+
+Here are a few limitations of KMeans that many overlook:
+- It does not account for cluster variance (the spread in 2D, for instance)
+- It can only produce globular clusters (no oval shapes in 2D, only circular)
+- It only relies on distance-based measures to assign data points to clusters
+↳ To understand better, consider two clusters in 2D, with A and B. Cluster A has a higher spread than B.
+↳ Now consider a line that is mid-way between centroids of A and B → A .... | .... B.
+↳ Although A has a higher spread, even if a point is even slightly right to the mid line, it will get assigned to cluster B.
+↳ Ideally, however, cluster A should have a larger area of influence.
+- It performs a hard assignment. Thus, there are no probabilistic estimates of each data point belonging to a cluster.
+
+These limitations often make KMeans a non-ideal choice for clustering.
+
+I often find Gaussian Mixture Models (GMM) to be quite a superior algorithm in this respect.
+
+As the name suggests, they can cluster a dataset that has a mixture of many Gaussians.
+
+So I like to think of them as a generalized twin of KMeans.
+
+The primary difference is that:
+- KMeans learns centroids.
+- GMM learn a distribution.
+
+For instance, in 2 dimensions:
+- while KMeans can only create circular clusters
+- A GMM can create oval-shaped clusters.
+
+Their effectiveness over KMeans is evident from the image below.
+- KMeans just relies on distance and ignores the distribution of each cluster
+- GMM learns the distribution and produces better clustering.
+
+How does it work?
+
+In a gist, it uses expectation maximization (EM), which is an iterative optimization technique to estimate the parameters of statistical models.
+
+The core idea behind EM is as follows:
+- Make a fair guess about the parameters
+- E-step: Compute the posterior probabilities of the unobserved variable using current parameters.
+- Define the “expected likelihood” function using the posterior probabilities.
+- M-step: Update the current parameters by maximizing the “expected likelihood”.
+- Use the updated parameters to recompute the posterior probabilities, i.e., Back to E-step.
+- Repeat until convergence.

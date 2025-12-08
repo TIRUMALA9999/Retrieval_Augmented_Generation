@@ -1,0 +1,53 @@
+If you think L2 regularization is only used to address overfitting, read this 🧩
+
+(It does much more than that)
+
+Most models intend to use L2 Regularization for just one thing:
+↳ Reduce overfitting.
+
+However, unknown to many, L2 regularization is a great remedy for multicollinearity.
+
+Multicollinearity arises when:
+↳ Two (or more) features are highly correlated, OR,
+↳ Two (or more) features can predict another feature.
+
+To understand how L2 regularization addresses multicollinearity, consider a dataset with two features and a dependent variable (y):
+↳ featureA
+↳ featureB → Highly correlated with featureA.
+↳ y = some linear combination of featureA and featureB.
+
+Ignoring the intercept term, our linear model will have two parameters (θ₁, θ₂).
+
+The goal is to find those specific parameters that minimize the residual sum of squares (RSS).
+
+So how about we do the following ↓
+
+1. We will plot the RSS value for many different combinations of (θ₁, θ₂) parameters. This will create a 3D plot:
+↳ x-axis → θ₁
+↳ y-axis → θ₂
+↳ z-axis → RSS value
+
+2. We will visually determine the (θ₁, θ₂) combination that minimizes the RSS value.
+
+Without the L2 penalty, we get the first plot in the image below.
+
+Do you notice something?
+
+The 3D plot has a valley.
+
+There are multiple combinations of parameter values (θ₁, θ₂) for which RSS is minimum.
+
+With the L2 penalty, we get the second plot in the image below.
+
+Do you notice something different this time?
+
+Using L2 regularization eliminated the valley we saw earlier.
+
+This provides a global minima to the RSS error.
+
+And out of nowhere, L2 regularization helped us eliminate multicollinearity.
+
+In fact, this is where “ridge regression” also gets its name from:
+↳ it eliminates the RIDGE in the likelihood function of a linear model when the L2 penalty is used.
+
+I have linked my recent newsletter issue in the comments for you to learn more about it.

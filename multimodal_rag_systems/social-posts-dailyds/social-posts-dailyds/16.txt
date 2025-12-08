@@ -1,0 +1,29 @@
+Decision trees always overfit.
+
+Here's a simple technique to prevent it in seconds.
+
+A decision tree, by default, is allowed to grow until all leaves are pure.
+
+As the model correctly classifies ALL training instances, this leads to:
+- 100% overfitting, and
+- poor generalization
+
+Cost-complexity-pruning (CCP) is an effective technique to prevent this.
+
+CCP considers a combination of two factors for pruning a decision tree:
+- Cost (C): Number of misclassifications
+- Complexity (C): Number of nodes
+
+The core idea is to drop sub-trees, which, after removal, lead to:
+- a minimal increase in classification cost
+- a maximum reduction of complexity (or nodes)
+
+In other words, if two sub-trees lead to a similar increase in cost, then it is wise to remove the sub-tree with more nodes.
+
+In sklearn, you can control this using the ccp_alpha parameter:
+- large value of ccp_alpha → results in underfitting
+- small value of ccp_alpha → results in overfitting
+
+The objective is to determine the optimal value of ccp_alpha, which gives a better model.
+
+The effectiveness of cost-complexity-pruning is evident from the image below.

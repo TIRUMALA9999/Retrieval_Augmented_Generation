@@ -1,0 +1,33 @@
+Poisson Regression vs. Linear Regression
+
+Linear regression comes with its own set of modeling challenges.
+
+For instance:
+- It cannot model count (or discrete) data.
+- After modeling, the output can be negative. This may not make sense at times — predicting the number of goals scored, number of calls received, etc.
+
+Furthermore, in linear regression:
+- Residuals are expected to be normally distributed around the mean.
+- Hence, outcomes on either side of the mean (m-x, m+x) are equally likely.
+
+For instance:
+- if the expected number (mean) of calls received is 1...
+- ...then, according to linear regression, receiving 3 calls (1+2) is just as likely as receiving -1 (1-2) calls.
+- This does not make any sense.
+
+Thus, if the above assumptions don't hold, linear regression won't help.
+
+Instead, what you may need is Poisson regression.
+
+Poisson regression:
+- is more suitable if your response (or outcome) is count-based.
+- assumes that the response comes from a Poisson distribution.
+
+Contrary to linear regression, in Poisson regression:
+- Residuals may follow an asymmetric distribution around the mean (λ).
+- Hence, outcomes on either side of the mean (λ-x, λ+x) are NOT equally likely.
+
+For instance:
+- if the expected number (mean) of calls received is 1...
+- ...then, according to Poisson regression, it is possible to receive 3 (1+2) calls, but it is impossible to receive -1 (1-2) calls.
+- This is because its outcome is also non-negative.

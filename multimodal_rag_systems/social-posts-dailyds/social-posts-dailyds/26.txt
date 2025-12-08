@@ -1,0 +1,31 @@
+Is Your Model Data Deficient?
+
+Here's how to test it.
+
+At times, no matter how much we try, the model performance barely improves:
+- Feature engineering is giving marginal improvement.
+- Trying different models does not produce satisfactory results either.
+- and more…
+
+This might indicate that we don't have enough data.
+
+As gathering data can be time-consuming, it would be good to get some insights into whether more data will likely help or not.
+
+Try this technique:
+
+1) Divide the training dataset into “k” equal parts. The validation set remains as is.
+↳ “k” does not have to be super large.
+↳ A number between 7 to 12 is typically fine depending on how much data you have.
+
+2) Train models cumulatively on the above subsets and measure performance on the validation set:
+↳ Train a model on the first subset and evaluate the validation set.
+↳ Train a model on the first two subsets and evaluate the validation set.
+↳ Train a model on the first three subsets and evaluate the validation set.
+↳ And so on…
+
+Plotting the validation performance (in increasing order of data) is likely to produce two types of lines.
+
+- Scenario 1 (green line) conveys that adding more data is likely to increase model performance.
+- Scenario 2 (red line) conveys that the model performance has already saturated. Adding more data will most likely not result in any considerable gains.
+
+This way, we can determine whether the model is data deficient and gathering data will be helpful or not.

@@ -1,0 +1,43 @@
+The first step in missing data imputation is NOT imputation.
+
+The data imputation strategy largely depends on WHY data is missing. Only when you know the reason can you proceed with the appropriate imputation techniques, which could be of three types:
+
+# 1) Missing completely at random (MCAR)
+
+The data is genuinely missing at random and has no relation to observed or unobserved variables.
+
+For instance, in survey responses with missing values, MCAR would mean that some participants randomly skipped to answer a random question.
+
+However, in my experience, *MCAR is mostly an unrealistic assumption.*
+
+This is because, in real-world scenarios, the occurrence of missing data is often influenced by some factor, observed or unobserved.
+
+That is why assuming MCAR for missing data is not a sensible assumption unless we know the end-to-end data collection process and/or have domain expertise.
+
+That said, nothing stops us from assuming MCAR if that appears to be a fair thing to do based on the analysis and/or input from the domain experts and/or after understanding the data collection mechanism. Proceed with the simplest imputation techniques.
+
+# 2) Missing at random (MAR)
+
+MAR is a situation in which the missingness of one feature can be explained by other observed features in the dataset.
+
+In contrast to MCAR, MAR is more practically observed and its occurrence can still be (somewhat) estimated based on the information available in the dataset.
+
+For instance, in an academic performance survey, students with higher grades might be less likely to disclose information about the number of hours they study (due to competition, maybe).
+
+Techniques like kNN imputation, Miss Forest, etc., are effective. They use other observed features to impute the missing feature. Check the comments to learn how they work.
+
+# 3) Missing not at random (MNAR)
+
+MNAR is the most complicated of all three.
+
+Here, missingness is either attributed to the missing value itself or the feature(s) we didn’t collect data for.
+
+For instance, in a health survey, participants with very high stress levels might not disclose it due to stigma, or fear of judgment.
+
+As a result, the missing data on stress level is not random; it is influenced by the stress level itself.
+
+- Higher the stress level → the less likely one will disclose it → the more likely we get a missing value.
+
+Thus, the missingness is directly dependent on the very variable that is missing.
+
+There’s not much we can do here, except for collecting more features. What’s more, domain expertise become extremely important to smartly tackling MNAR and improving data collection process.

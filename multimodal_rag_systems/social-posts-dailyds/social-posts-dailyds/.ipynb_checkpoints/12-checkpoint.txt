@@ -1,0 +1,13 @@
+Mixed precision training explained step-by-step.
+
+Almost all models use this to speed up training.
+
+The motivation is simple.
+
+Typical deep learning frameworks are really conservative when assigning data types. They usually allocate 64-bit or 32-bit to get higher precision.
+
+However, this precision involves additional memory utilization, which is not necessary every time. Thus, in most cases, we are not optimal at efficiently allocating memory.
+
+Using lower-precision formats, like float16, can dramatically reduce memory footprint and speed up training since operations like matrix multiplication run much faster under smaller precision.
+
+Typical speedups can be anywhere between 2-4x, *without heavily comprising model accuracy.*

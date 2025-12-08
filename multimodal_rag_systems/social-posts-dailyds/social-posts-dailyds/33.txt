@@ -1,0 +1,39 @@
+5 Chunking Strategies For RAG explained in a single frame 🧩
+
+Before embedding the additional info, it is advised to chunk it, wherein a large document is divided into smaller/manageable pieces.
+
+This step is crucial since it ensures the text fits the input size of the embedding model.
+
+Moreover, it enhances the efficiency and accuracy of the retrieval step, which directly impacts the quality of generated responses.
+
+The below visual explains 5 common strategies for chunking.
+
+1) Fixed-size chunking
+- Generate chunks by splitting the text into uniform segments.
+- Not a pretty good strategy since it usually breaks sentences (or ideas) in between
+- Thus, important information will likely get distributed between chunks.
+
+2) Semantic chunking
+- Segment the document based on meaningful units like sentences, paragraphs, or thematic sections.
+- Next, create embeddings for each segment.
+- Start with the first segment and its embedding.
+↳ If the first segment’s embedding has a high cosine similarity with that of the second segment, both segments form a chunk.
+↳ This continues until cosine similarity drops significantly.
+↳ The moment it does, we start a new chunk and repeat.
+
+3) Recursive chunking
+- First, chunk based on inherent separators like paragraphs, or sections.
+- Split each chunk into smaller chunks if the size exceeds a pre-defined chunk size limit.
+
+4) Document structure-based chunking:
+- It utilizes the inherent structure of documents, like headings, sections, or paragraphs, to define chunk boundaries.
+- This way, it maintains structural integrity by aligning with the document’s logical sections.
+- But it assumes that the document has a clear structure, which may not be true.
+- Also, chunks may vary in length, possibly exceeding model token limits. You can try merging it with recursive splitting.
+
+5) LLM-based chunking
+- Since every approach has upsides and downsides, why not use the LLM to create chunks?
+- The LLM can be prompted to generate semantically isolated and meaningful chunks.
+- Quite evidently, this method will ensure high semantic accuracy since the LLM can understand context and meaning beyond simple heuristics (used in the above four approaches).
+- The only problem is that it is the most computationally demanding chunking technique of all five techniques discussed here.
+- Also, since LLMs typically have a limited context window, that is something to be taken care of.

@@ -1,0 +1,13 @@
+It takes hours to run tSNE on 100k+ samples. 
+
+But I ran it on 1M+ data points in minutes.
+
+The biggest pain point of using tSNE is that its run-time is quadratically related to the number of data points.
+
+openTSNE is an optimized Python implementation of tSNE, which provides massive speed improvements.
+
+What's more, it can scale tSNE to millions of data points — a place where Sklearn implementation may never reach.
+
+The effectiveness is evident from the image below. On a dataset of 70k images, the openTSNE implementation:
+- is 20 times faster than the Sklearn implementation.
+- produces similar quality clustering as the Sklearn implementation.

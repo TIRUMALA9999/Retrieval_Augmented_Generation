@@ -1,0 +1,40 @@
+Learned about a new technique to improve knowledge distillation...
+
+...and it's pretty intuitive and powerful.
+
+There are two ways to ensure that you are not deploying heavy ML models in production:
+- Train a small model in the first place.
+- Train a large model but then transfer its knowledge to a smaller model.
+
+The second technique is known as knowledge distillation (KD).
+
+The idea is simple:
+↳ train a smaller/simpler model (student) that mimics the output of a larger/complex model (teacher).
+
+Relating it to an academic teacher-student scenario, the student may not be as performant as the teacher. But with consistent training, a smaller model may get (almost) as good as the larger one.
+
+A classic example of a model developed in this way is DistillBERT. It is a student model of BERT.
+- DistilBERT is ~40% smaller than BERT, which is a massive difference in size.
+- Yet, it retains approximately 97% of the BERT’s capabilities.
+
+However, when using KD in practice, two things are observed:
+- For a given size of the student model, there is a limit on the size of the teacher model it can learn from.
+- For a given size of the teacher model, one can effectively transfer knowledge to student models only up to a certain size, not lower.
+
+This can be addressed by introducing an intermediate model called the “teacher assistant."
+
+The process is simple, as depicted in the image below.
+
+- Step 1: The assistant model learns from the teacher model using the standard KD process.
+- Step 2: The student model learns from the assistant model using the standard KD process.
+
+Of course, this adds a layer of additional training in the model building process.
+
+However, given that development environments are usually not restricted in terms of the available computing resources, this technique can significantly enhance the performance and efficiency of the final student model.
+
+Moreover, the cost of running the model in production grows progressively with demand, but relative to that, training costs still remain low. So a one-time effort can be quite beneficial.
+
+Results?
+
+- utilizing the teacher assistant mostly works better than the standard KD approach.
+- the assistant model does not have to be significantly similar in size to the teacher model. For instance, the assistant model is usually more than 50% smaller than the teacher model.

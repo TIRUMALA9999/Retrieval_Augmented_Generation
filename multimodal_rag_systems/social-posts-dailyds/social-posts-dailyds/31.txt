@@ -1,0 +1,39 @@
+11 Types of Variables in a Dataset!
+
+Beyond features and targets, datasets include various variable types essential for analysis.
+
+1-2) Independent and Dependent Variables
+
+Independent Variables: Inputs used to predict outcomes.
+Dependent Variable: The outcome being predicted.
+
+3) Interaction Variables
+
+Capture combined effects of two or more variables, often in regression analysis.
+
+4) Latent Variables
+
+Not directly observed but inferred from other variables.
+Example: In clustering, true labels are latent variables inferred from data.
+
+5-7) Confounding, Correlated, and Control Variables
+
+Confounding Variables: Affect both independent and dependent variables, potentially biasing results.
+Example: Temperature influences both ice cream and air conditioner sales.
+Control Variables: Accounted for to eliminate bias from confounders.
+
+8) Leaky Variables
+
+Unintentionally reveal information about the target not available at prediction time.
+
+9-10) Stationary and Non-Stationary Variables
+
+Stationary Variables: Statistical properties remain constant over time.
+Important because many models assume identical distributions.
+Non-Stationary Variables: Statistical properties change over time.
+Tip: Use relative changes (ΔP/P) instead of absolute values to handle non-stationarity.
+
+11) Lagged Variables
+
+Previous values used to predict future values.
+Example: Using last month's sales to predict next month's sales.

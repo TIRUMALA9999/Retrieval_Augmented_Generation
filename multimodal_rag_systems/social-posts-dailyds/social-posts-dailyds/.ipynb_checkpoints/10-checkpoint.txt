@@ -1,0 +1,32 @@
+16 popular open-source contributions by big tech 👇
+
+I prepared a visual that depicts the most popular open-source contributions by big tech in ML.
+
+The motivation was to lay out and understand some of the key contributions from big techs in shaping the ML ecosystem over the years through their open-source contributions.
+
+Microsoft:
+- ​DeepSpeed​: A library for deep learning optimization, designed to train large models efficiently using features like model parallelism and mixed precision.
+- ​LightGBM​: A gradient boosting framework optimized for speed and performance, commonly used for ranking, classification, and regression tasks.
+- ​ONNX​: An open format to represent machine learning models, enabling interoperability between different frameworks.
+
+
+Google:
+- ​TensorFlow​: A widely-used deep learning framework for building, training, and deploying machine learning models across various platforms.
+- ​JAX​: A library for high-performance numerical computing and deep learning, emphasizing differentiable programming and GPU/TPU support.
+- ​OpenXLA​: An open-source compilation ecosystem for accelerating machine learning models on various hardware platforms.
+
+Meta:
+- ​Fairseq​: A sequence-to-sequence learning toolkit for training and evaluating custom models for tasks like machine translation, text generation, and speech recognition.
+- ​PyTorch​: A popular machine learning framework known for its flexibility and ease of use in research and production environments.
+- ​LLaMA​: A family of foundational language models designed for efficient and scalable NLP tasks.
+- ​Faiss​: A library for efficient similarity search and clustering of dense vectors, widely used in recommendation systems and search.
+
+Yandex:
+- ​CatBoost​: A gradient boosting library optimized for categorical features, offering state-of-the-art accuracy and efficiency.
+- ​YaFSDP​: An optimized data parallelism library that is an enhanced version of FSDP (a framework in PyTorch) with additional optimizations, especially for LLMs.
+- ​ClickHouse​: A columnar database management system optimized for analytical queries and real-time data processing.
+
+NVIDIA:
+- ​RAPIDS​: A collection of GPU-accelerated libraries for data science, enabling faster data processing and machine learning workflows.
+- TensorRT​: A platform for high-performance deep learning inference, offering model optimization and deployment on NVIDIA GPUs.
+- ​NeMo​: A framework for building and fine-tuning large language models, particularly in speech, NLP, and multimodal AI.

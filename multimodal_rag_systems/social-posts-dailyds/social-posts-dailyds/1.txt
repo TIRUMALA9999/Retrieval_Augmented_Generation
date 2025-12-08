@@ -1,0 +1,5 @@
+40 most used NumPy methods in a single frame.
+
+NumPy is widely used for many data science projects. Thus, being aware of its most common methods is necessary for Data Scientists.
+
+The below visual depicts the 40 methods that are used 95% of the time.

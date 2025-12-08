@@ -1,0 +1,23 @@
+PyTorch dataloader has two terrible default settings.
+
+Fixing it gave me ~5x speedup.
+
+In any standard PyTorch model training with GPU:
+- .to(device) transfers the data to the GPU.
+- Everything executes after this happens on the GPU.
+
+This means when the GPU is working, the CPU is idle, and when the CPU is working, the GPU is idle.
+
+Memory pinning can optimize this.
+
+Here's what it does:
+- When the model is trained on the 1st mini-batch, the CPU can transfer the 2nd mini-batch to the GPU.
+- This ensures that the GPU does not have to wait for the next mini-batch of data as soon as it completes processing an existing mini-batch.
+
+Enabling this is quite simple in PyTorch:
+- Set pin_memory=True in the DataLoader object.
+- During the data transfer step, do this: .to(device, non_blocking=True)
+
+Along with this, also specify num_workers in the Dataloader object.
+
+The speedup is evident from the image below.

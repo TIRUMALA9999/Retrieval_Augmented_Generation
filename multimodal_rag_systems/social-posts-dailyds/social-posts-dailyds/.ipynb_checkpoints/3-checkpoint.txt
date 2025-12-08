@@ -1,0 +1,39 @@
+What is the motivation behind using KernelPCA over PCA? 🧩
+
+PCA always finds a low-dimensional linear subspace that the given data conforms to.
+
+For instance, if the data is along y=2x+3, PCA will produce that linear subspace.
+
+Note: This data will be unlabeled. The line above is just to demonstrate the shape of the data.
+
+But what if our data conforms to a low-dimensional yet non-linear subspace?
+
+Consider the data is along y = x^2.
+
+There still exists a low-dimension subspace, but it is not linear this time.
+
+More specifically, the axes along x^2 can be our subspace to reduce dimensionality.
+
+But PCA can not produce this subspace, which is also evident from the first image below.
+
+KernelPCA (or the kernel trick) precisely addresses this limitation of PCA.
+
+The idea is pretty simple:
+- Project the data to a high-dimensional space using a kernel function. It is expected that the data will become linearly representable.
+- Apply the standard PCA algorithm to the transformed data.
+
+The efficacy of KernelPCA over PCA is evident from the second image below.
+
+If KernelPCA is so effective, why not use it everytime over PCA?
+
+# What's the catch?
+
+The catch is the run time.
+
+The run time of PCA is already cubically related to the number of dimensions.
+
+KernelPCA involves the kernel trick, which grows quadratically with total data points (n).
+
+Thus, it increases the overall run time.
+
+So this is something to be aware of when using KernelPCA.

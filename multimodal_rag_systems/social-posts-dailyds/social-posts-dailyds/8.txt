@@ -1,0 +1,9 @@
+The time complexity of 10 popular ML algorithms in a single frame.
+
+Understanding the run time of ML algorithms is important because it helps us:
+- Build a core understanding of an algorithm.
+- Understand the data-specific conditions that allow us to use an algorithm.
+
+For instance, using SVM or t-SNE on large datasets is infeasible because of their polynomial relation with data size.
+
+Similarly, using OLS on a high-dimensional dataset makes no sense because its run-time grows cubically with total features.

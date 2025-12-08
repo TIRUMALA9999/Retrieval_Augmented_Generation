@@ -1,0 +1,39 @@
+Covariate shift is way more problematic in ML than most people think.
+
+Almost all real-world ML models gradually degrade in performance due to covariate shift.
+
+It happens when the distribution of features changes over time.
+
+It is a serious problem because we trained the model on one distribution. But it is being used to predict on another distribution in production.
+
+One common way to detect covariate shift is by comparing the feature distribution of training and production data.
+
+This could be done in many ways, such as:
+- Compare their summary statistics — mean, median, etc.
+- Inspect visually using distribution plots.
+- Perform hypothesis testing.
+- Measure distances between training/production distributions using Bhattacharyya distance, KS test, etc.
+
+But the biggest problem is that they work on a single feature at a time.
+
+And in real life, we may observe multivariate covariate shift as well.
+
+Multivariate covariate shift happens when:
+- The distribution of individual distributions remains the same: P(X1), P(X2), ... remain the same.
+- But their joint distribution changes P(X1, X2, ...) changes.
+
+This is evident from the image below:
+
+The KDE plots on the top and the right depict that features (covariates) distribution is almost the same.
+
+But, the scatter plot reveals that their joint distribution in training (Blue) differs from that in production (Red).
+
+Here, all univariate covariate shift detection methods will produce misleading results.
+
+As a result, one may rule out the possibility of covariate shift if they don't know that it can be multivariate in nature.
+
+Of course, in the figure below, it was easy to detect multivariate covariate shift because of only two features.
+
+But multivariate covariate shift can happen with more than two features as well.
+
+Unlike the bivariate case above, visual inspection will not be possible.

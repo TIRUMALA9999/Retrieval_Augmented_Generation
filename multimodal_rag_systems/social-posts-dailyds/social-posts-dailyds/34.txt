@@ -1,0 +1,25 @@
+Popular DS interview question: What are confidence and prediction intervals?
+
+Statistical estimates always have some uncertainty.
+
+Consider a simple example of modeling house prices just based on its area using linear regression.
+
+A prediction wouldn’t tell the true value of a house based on its area. This is because different houses of the same size can have different prices.
+
+Instead, what it predicts is the mean value related to the outcome at a particular input.
+
+The point is…
+
+There’s always some uncertainty involved in statistical estimates, and it is important to communicate it.
+
+In this specific case, there are two types of uncertainties:
+1) The uncertainty in estimating the true mean value.
+2) The uncertainty in estimating the true value.
+
+Confidence interval and prediction interval help us capture these uncertainties.
+
+I have often seen people getting confused between the two, so I covered it in detail here: https://lnkd.in/gcjD_qaH.
+
+Communicating these uncertainties is quite crucial in decision-making because it provides a clearer understanding of the reliability and precision of predictions.
+
+This transparency allows stakeholders to make more informed decisions by considering the range of possible outcomes and the associated risks.

@@ -1,0 +1,25 @@
+Most Pandas users have a misconception about inplace operations.
+
+They profoundly use them in expectation of:
+- Smaller run-time
+- Lower memory usage
+
+And, of course, the reasoning makes intuitive sense as well.
+
+Inplace, as the name suggests, must modify the DataFrame without creating a new copy. Thus, it is okay to expect that inplace will be more efficient.
+
+Yet, this is rarely the case, which is also evident from the image below.
+
+It is clear that in most cases, inplace operations are slow.
+
+# Why does this happen?
+
+Contrary to common belief, Pandas’ inplace operations NEVER prevent the creation of a new copy.
+
+It is just that these operations assign the copy back to the same address.
+
+But during this assignment step, Pandas has to perform some additional checks — SettingWithCopy, for instance, to ensure that the DataFrame is being modified correctly.
+
+This, at times, can be an expensive operation.
+
+Yet, in general, there is no guarantee that an inplace operation is faster, which is also validated by the results below.

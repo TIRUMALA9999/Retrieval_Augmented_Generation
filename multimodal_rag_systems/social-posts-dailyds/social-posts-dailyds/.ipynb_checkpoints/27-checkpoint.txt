@@ -1,0 +1,37 @@
+5 open-source agentic frameworks that will give you superpowers as an AI engineer!
+
+1️⃣ Dymamiq
+
+Dynamiq is like a Swiss army knife for AI Engineers, it supports: 
+
+- RAG applications. 
+- Multi agent orchestration 
+- And managing complex LLM workflows 
+
+Everything in one place!✨
+
+2️⃣ SwarmZero AI
+
+SwarmZero provides you with an easy way to create and run AI Agents and Swarms of Agents.
+
+- Completely hands off orchestration
+- Seamless integration with your apps
+
+3️⃣ PhiData
+
+phidata is a framework for creating agentic systems, enabling engineers to:
+
+- Develop Agents with memory, knowledge, tools, and reasoning.
+- Form teams of collaborative Agents.
+- Create beautiful chat UI
+- Monitor, assess, and enhance Agents.
+
+4️⃣ CrewAI
+
+CrewAI is a cutting-edge framework for orchestrating role-playing, autonomous AI agents. 
+
+By fostering collaborative intelligence, CrewAI empowers agents to work together seamlessly, tackling complex tasks.
+
+5️⃣ Microsoft's AutoGen
+
+AutoGen is an open-source framework for building AI agent systems. It streamlines creating event-driven, scalable, and resilient applications, enabling AI agents to work autonomously or with human guidance.

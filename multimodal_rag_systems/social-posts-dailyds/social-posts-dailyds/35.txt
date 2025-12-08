@@ -1,0 +1,20 @@
+Why t-SNE algorithm uses t-distribution instead of Gaussian used in SNE🧩?
+
+The t-SNE algorithm is an improved version of the SNE algorithm, both used for dimensionality reduction.
+
+The problem with SNE is that the clusters produced by SNE are not well separated. This is shown in the image below on the left.
+
+This happens because the low-dimensional conditional distributions in SNE use Gaussian distribution.
+
+A solution that the authors came up with was to use some other probability distribution, such that for distant points, we get the same value of the conditional probability as we would have obtained from a Gaussian distribution but at a larger Euclidean distance.
+
+More specifically, in the low-dimensional space:
+- If Gaussian has a probability density of 0.1 at distance=10.
+- then, we would want to use a distribution that has a probability density of 0.1 at a distance>10.
+
+The Student t-distribution is a perfect fit for it.
+
+And the change it brings is evident from the plot on the right in the image below.
+That said, besides producing well-separated clusters, using the Student t-distribution has many more advantages.
+
+For instance, it is computationally much faster to evaluate the density of a point under a Student t-distribution than under a Gaussian.
