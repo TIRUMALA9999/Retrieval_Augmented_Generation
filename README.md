@@ -1,4 +1,4 @@
-# Retrieval-Augmented Generation (RAG) — End-to-End Portfolio (Qdrant • LlamaIndex • Ollama • Graph RAG • Multimodal)
+# Retrieval-Augmented Generation (RAG) — End-to-End  (Qdrant • LlamaIndex • Ollama • Graph RAG • Multimodal)
 
 ![Python](https://img.shields.io/badge/Python-3.10%2B-blue)
 ![RAG](https://img.shields.io/badge/RAG-Retrieval%20Augmented%20Generation-purple)
@@ -6,29 +6,28 @@
 ![LlamaIndex](https://img.shields.io/badge/Framework-LlamaIndex-black)
 ![Ollama](https://img.shields.io/badge/LLM-Ollama-orange)
 
-**Target audience:** Recruiters / Hiring Managers  
-**Style:** Resume-focused • Interview-explainable • ATS-friendly
+
 
 This repository is a collection of hands-on **RAG system implementations**—from classic document Q&A to **reranking**, **multimodal RAG (text+image)**, and **Graph RAG**—built primarily with **LlamaIndex**, **Qdrant**, and **local LLM inference via Ollama**.
 
 ---
 
-## Key highlights (30-second recruiter summary)
+## Key highlights 
 
 - Implemented multiple **RAG architectures**: classic vector RAG, **reranked RAG**, **multimodal RAG**, and **Graph RAG**.
 - Used **Qdrant** as the vector database for fast semantic retrieval and persisted local collections (`chat_with_docs`, `document_chat`).
 - Built document ingestion pipelines with **chunking + embeddings** using **HuggingFace (BGE)** and **fastembed (CLIP)**.
-- Added **reranking** (`cross-encoder/ms-marco-MiniLM-L-2-v2`) to improve retrieval precision before generation.
+- Added **reranking** (`cross-encoder/ms-macro-MiniLM-L-2-v2`) to improve retrieval precision before generation.
 - Deployed a **Streamlit document-chat UI** (LLM + retrieval + PDF preview) using **LlamaIndex + Ollama**.
 - Implemented **Graph RAG** using **Neo4jPropertyGraphStore** + LlamaIndex **PropertyGraphIndex** for structured retrieval.
 
-**ATS keywords:** Retrieval Augmented Generation, RAG, Vector Database, Qdrant, Embeddings, Semantic Search, Reranking, LlamaIndex, Ollama, Graph RAG, Neo4j, Multimodal Retrieval, CLIP, Python, Streamlit.
+**Keywords:** Retrieval Augmented Generation, RAG, Vector Database, Qdrant, Embeddings, Semantic Search, Reranking, LlamaIndex, Ollama, Graph RAG, Neo4j, Multimodal Retrieval, CLIP, Python, Streamlit.
 
 ---
 
 ## What’s inside (repo map)
 
-> This repo contains notebooks + apps for multiple RAG variants. Large generated artifacts like `qdrant_storage/` and `hf_cache/` are included in this snapshot (good for demos, but should be `.gitignore`d for production).
+> This repo contains notebooks + apps for multiple RAG variants. Large generated artifacts like `qdrant_storage/` and `hf_cache/` are included in this snapshot.
 
 ```
 Retrieval_Augmented_Generation-main/
@@ -55,7 +54,7 @@ Retrieval_Augmented_Generation-main/
 
 ---
 
-## How to explain this project in an interview (simple architecture)
+## Explanation
 
 ### 1) Classic Vector RAG (Qdrant + Embeddings + Top‑K Retrieval)
 1. **Ingest documents** (e.g., PDFs/text)
@@ -133,7 +132,7 @@ streamlit run rag-project-2/rag-project/app.py
 
 ---
 
-## Where recruiters should look first
+## View
 
 1. **RAG.ipynb**  
    Shows: Qdrant ingestion → BGE embeddings → reranker → Ollama generation.
@@ -173,7 +172,7 @@ hf_cache/
 
 ---
 
-## Resume bullet points (copy/paste)
+## Points 
 
 - Built end-to-end **Retrieval-Augmented Generation (RAG)** pipelines using **Qdrant** and **LlamaIndex**, enabling document-grounded Q&A and reducing hallucinations through retrieval-based grounding.  
 - Implemented **HuggingFace BGE embeddings** and optimized retrieval quality using a **cross-encoder reranker** (`ms-marco-MiniLM`) to improve top‑k relevance before generation.  
